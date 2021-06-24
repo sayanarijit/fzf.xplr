@@ -22,7 +22,7 @@ Installation
   ```bash
   mkdir -p ~/.config/xplr/plugins
 
-  git clone https://github.com/sayanarijit/dua-cli.xplr ~/.config/xplr/plugins/dua-cli
+  git clone https://github.com/sayanarijit/fzf.xplr ~/.config/xplr/plugins/fzf
   ```
 
 - Require the module in `~/.config/xplr/init.lua`
