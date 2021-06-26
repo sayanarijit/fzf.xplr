@@ -25,11 +25,8 @@ local function setup(args)
       {
         BashExec = [===[
         SELECTED=$(cat "${XPLR_PIPE_DIRECTORY_NODES_OUT:?}" | awk -F / '{print $NF}' | fzf --no-sort ]===] .. args.args .. [===[)
-        if [ -d "$SELECTED" ]; then
-          echo ChangeDirectory: '"'$PWD/$SELECTED'"' >> "${XPLR_PIPE_MSG_IN:?}"
-        elif [ "$SELECTED" ]; then
-          echo FocusPath: '"'$PWD/$SELECTED'"' >> "${XPLR_PIPE_MSG_IN:?}"
-        fi
+        [ "$SELECTED" ] && echo FocusPath: '"'$PWD/$SELECTED'"' >> "${XPLR_PIPE_MSG_IN:?}"
+        [ -d "$SELECTED" ] && echo Enter >> "${XPLR_PIPE_MSG_IN:?}"
         ]===]
       },
       "PopMode",
