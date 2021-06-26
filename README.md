@@ -45,5 +45,6 @@ Installation
 Features
 --------
 
-- Supports multi-select paths.
+- If a file is selected, xplr will focuses on it, if a directory is selected,
+  xplr will cd into it.
 - Search is done on the filtered sorted paths via xplr.

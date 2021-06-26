@@ -24,22 +24,15 @@ local function setup(args)
     messages = {
       {
         BashExec = [===[
-        LAST_PATH=""
-        SELECTED=$(cat "${XPLR_PIPE_DIRECTORY_NODES_OUT:?}" | awk -F / '{print $NF}' | fzf -m --no-sort ]===] .. args.args .. [===[)
-        if [ "$SELECTED" ]; then
-          while read -r line; do
-            CURR_PATH="${PWD:?}/${line:?}"
-            echo FocusPath: '"'${CURR_PATH:?}'"' >> "${XPLR_PIPE_MSG_IN:?}"
-            [ "$LAST_PATH" ] \
-              && echo SelectPath: '"'${CURR_PATH:?}'"' >> "${XPLR_PIPE_MSG_IN:?}" \
-              && echo SelectPath: '"'${LAST_PATH:?}'"' >> "${XPLR_PIPE_MSG_IN:?}"
-            LAST_PATH="${CURR_PATH:?}"
-          done <<< "$SELECTED"
+        SELECTED=$(cat "${XPLR_PIPE_DIRECTORY_NODES_OUT:?}" | awk -F / '{print $NF}' | fzf --no-sort ]===] .. args.args .. [===[)
+        if [ -d "$SELECTED" ]; then
+          echo ChangeDirectory: '"'$PWD/$SELECTED'"' >> "${XPLR_PIPE_MSG_IN:?}"
+        elif [ "$SELECTED" ]; then
+          echo FocusPath: '"'$PWD/$SELECTED'"' >> "${XPLR_PIPE_MSG_IN:?}"
         fi
         ]===]
       },
       "PopMode",
-      "ClearScreen",
     },
   }
 end
