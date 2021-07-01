@@ -11,7 +11,7 @@ local function setup(args)
   end
 
   if args.key == nil then
-    args.key = "F"
+    args.key = "ctrl-f"
   end
 
   if args.args == nil then
