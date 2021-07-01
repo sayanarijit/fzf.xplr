@@ -34,11 +34,11 @@ Installation
   
   require("fzf").setup{
     mode = "default",
-    key = "F",
+    key = "ctrl-f",
     args = "--preview 'pistol {}'"
   }
 
-  -- Type `F` to spawn fzf in $PWD
+  -- Press `ctrl-f` to spawn fzf in $PWD
   ```
 
 
