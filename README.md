@@ -45,6 +45,6 @@ Installation
 Features
 --------
 
-- If a file is selected, xplr will focuse on it, if a directory is selected,
+- If a file is selected, xplr will focus on it, if a directory is selected,
   xplr will cd into it.
 - Search is done on the filtered sorted paths via xplr.
