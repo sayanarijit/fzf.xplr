@@ -1,20 +1,22 @@
 [![xplr-fzf.gif](https://s4.gifyu.com/images/xplr-fzf.gif)](https://gifyu.com/image/rG21)
 
-Requirements
-------------
+## Requirements
 
 - [fzf](https://github.com/junegunn/fzf)
 
-
-Installation
-------------
+## Installation
 
 ### Install manually
 
 - Add the following line in `~/.config/xplr/init.lua`
 
   ```lua
-  package.path = os.getenv("HOME") .. '/.config/xplr/plugins/?/src/init.lua'
+  local home = os.getenv("HOME")
+  package.path = home
+  .. "/.config/xplr/plugins/?/init.lua;"
+  .. home
+  .. "/.config/xplr/plugins/?.lua;"
+  .. package.path
   ```
 
 - Clone the plugin
@@ -29,9 +31,9 @@ Installation
 
   ```lua
   require("fzf").setup()
-  
+
   -- Or
-  
+
   require("fzf").setup{
     mode = "default",
     key = "ctrl-f",
@@ -41,9 +43,7 @@ Installation
   -- Press `ctrl-f` to spawn fzf in $PWD
   ```
 
-
-Features
---------
+## Features
 
 - If a file is selected, xplr will focus on it, if a directory is selected,
   xplr will cd into it.
