@@ -24,7 +24,7 @@ local function setup(args)
     messages = {
       {
         BashExec = [===[
-        SELECTED=$(cat "${XPLR_PIPE_DIRECTORY_NODES_OUT:?}" | awk -F / '{print $NF}' | fzf --no-sort ]===] .. args.args .. [===[)
+        SELECTED=$(cat "${XPLR_PIPE_DIRECTORY_NODES_OUT:?}" | awk -F / '{print $NF}' | fzf ]===] .. args.args .. [===[)
         if [ "$SELECTED" ]; then
           echo FocusPath: '"'$PWD/$SELECTED'"' >> "${XPLR_PIPE_MSG_IN:?}"
         fi
