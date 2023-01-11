@@ -37,7 +37,10 @@
   require("fzf").setup{
     mode = "default",
     key = "ctrl-f",
+    bin = "fzf"
     args = "--preview 'pistol {}'"
+    recursive = false,  -- If true, search all files under $PWD
+    enter_dir = false,  -- Enter if the result is directory
   }
 
   -- Press `ctrl-f` to spawn fzf in $PWD
@@ -45,6 +48,6 @@
 
 ## Features
 
-- If a file is selected, xplr will focus on it, if a directory is selected,
-  xplr will cd into it.
 - Search is done on the filtered sorted paths via xplr.
+- Option to toggle into recursive search.
+- Option to toggle enter directory.
